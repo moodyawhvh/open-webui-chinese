@@ -1,24 +1,27 @@
-# Changelog
+> 🌐 本文档由 [open-webui/open-webui](https://github.com/open-webui/open-webui) 翻译,英文原版见原项目。
+>
+> 📝 本文件超过 10000 字符,仅翻译头部说明与最新版本(0.11.3)章节;更早的历史条目保持英文原样,请参阅英文原版。
 
-All notable changes to this project will be documented in this file.
+# 更新日志
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+本项目的所有重要变更都会记录在本文件中。
+
+格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),版本号遵循[语义化版本(Semantic Versioning)](https://semver.org/spec/v2.0.0.html)。
 
 ## [0.11.3] - 2026-08-31
 
-### Added
+### 新增(Added)
 
-- ♿ **Accessibility mode reaches the menus.** Accessibility mode now marks the menu entry you are pointing at and the model already chosen with a stronger background, across the dropdown menus, their submenus, and the model picker together with its filter and compare controls, so those cues carry the contrast the accessibility guidelines ask for in both themes. [Commit](https://github.com/open-webui/open-webui/commit/a6f9751401589ee73208295b6f6a7f6eae9c1b44), [Commit](https://github.com/open-webui/open-webui/commit/471b5cbbb16c3996c32e68808dde6f8898f64ecd)
-- 🔄 **General improvements.** Various improvements were implemented across the application to enhance performance, stability, and security.
-- 🌐 **Translation updates.** Translations for Indonesian were enhanced and expanded.
+- ♿ **无障碍模式覆盖到菜单。** 无障碍模式现在会对下拉菜单、子菜单以及模型选择器(含筛选和对比控件)中当前指向的菜单项和已选中的模型使用更醒目的背景色,使这些提示在浅色与深色两套主题下都达到无障碍指南要求的对比度。[Commit](https://github.com/open-webui/open-webui/commit/a6f9751401589ee73208295b6f6a7f6eae9c1b44), [Commit](https://github.com/open-webui/open-webui/commit/471b5cbbb16c3996c32e68808dde6f8898f64ecd)
+- 🔄 **常规改进。** 在整个应用范围内实施了多项改进,以提升性能、稳定性与安全性。
+- 🌐 **翻译更新。** 印度尼西亚语翻译得到增强与扩充。
 
-### Fixed
+### 修复(Fixed)
 
-- 💥 **Chat branches stay connected after reloads.** A reply saved under an earlier message now stays listed under that message, so branch arrows, exports, reloads, and later edits keep the whole conversation in view, and chats already saved with that link missing are repaired when opened. [#29299](https://github.com/open-webui/open-webui/issues/29299)
-- 🧱 **Upgrades fail clearly instead of starting half updated.** A failed database upgrade now stops at the migration error that caused it, instead of starting anyway and reporting a missing table or column such as 'chat.timer_at' later, which is the upgrade failure seen after moving from 0.11.0, 0.11.1, or 0.11.2. [#29280](https://github.com/open-webui/open-webui/issues/29280)
-- 🔤 **Custom interface fonts reach more of the app.** The font chosen in interface settings now applies to dropdowns and other interface text that previously fell back to the standard font. [Commit](https://github.com/open-webui/open-webui/commit/1457000ba66547b24bd98012aa35ac16fd4bc696)
-- 🔌 **Disconnect OAuth only where there is OAuth.** The disconnect control on a tool server reached over MCP now appears only where that server signs in through OAuth and an account is connected, rather than on servers that use no sign-in at all. [#29296](https://github.com/open-webui/open-webui/issues/29296)
+- 💥 **聊天分支在重新加载后保持连接。** 保存于较早消息之下的回复现在会继续显示在该消息下方,分支箭头、导出、重新加载及后续编辑都能完整呈现整个对话;已保存时缺失该关联的聊天会在打开时自动修复。[#29299](https://github.com/open-webui/open-webui/issues/29299)
+- 🧱 **升级失败会明确报错,而不是半更新状态启动。** 数据库升级失败时,现在会停在引发错误的迁移步骤上,而不是照常启动、之后再报 'chat.timer_at' 之类的缺表缺列错误——这正是从 0.11.0、0.11.1 或 0.11.2 升级后看到的故障。[#29280](https://github.com/open-webui/open-webui/issues/29280)
+- 🔤 **自定义界面字体覆盖更多界面。** 在界面设置中选择的字体,现在会应用到此前回退为标准字体的下拉菜单及其他界面文本。[Commit](https://github.com/open-webui/open-webui/commit/1457000ba66547b24bd98012aa35ac16fd4bc696)
+- 🔌 **只在确有 OAuth 的地方显示断开连接。** 通过 MCP 访问的工具服务器上,"断开连接"控件现在只在服务器通过 OAuth 登录且已连接账户时才显示,而不是出现在完全无需登录的服务器上。[#29296](https://github.com/open-webui/open-webui/issues/29296)
 
 ## [0.11.2] - 2026-08-31
 

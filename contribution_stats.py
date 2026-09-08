@@ -1,12 +1,19 @@
+# -*- coding: utf-8 -*-
+"""贡献度统计脚本(已汉化注释)。
+
+用法:在仓库根目录运行 `python contribution_stats.py`,
+遍历 git 跟踪的文本文件,用 `git blame` 按作者邮箱统计行数占比。
+"""
 import os
 import subprocess
 from collections import Counter
 
+# 视为配置文件、不计入统计的扩展名
 CONFIG_FILE_EXTENSIONS = ('.json', '.yml', '.yaml', '.ini', '.conf', '.toml')
 
 
 def is_text_file(filepath):
-    # Check for binary file by scanning for null bytes.
+    # 通过扫描空字节(\0)判断是否为二进制文件。
     try:
         with open(filepath, 'rb') as f:
             chunk = f.read(4096)
@@ -19,10 +26,10 @@ def is_text_file(filepath):
 
 def should_skip_file(path):
     base = os.path.basename(path)
-    # Skip dotfiles and dotdirs
+    # 跳过点文件和点目录
     if base.startswith('.'):
         return True
-    # Skip config files by extension
+    # 按扩展名跳过配置文件
     if base.lower().endswith(CONFIG_FILE_EXTENSIONS):
         return True
     return False
@@ -30,6 +37,7 @@ def should_skip_file(path):
 
 def get_tracked_files():
     try:
+        # `git ls-files` 列出所有被 git 跟踪的文件
         output = subprocess.check_output(['git', 'ls-files'], text=True)
         files = output.strip().split('\n')
         files = [f for f in files if f and os.path.isfile(f)]
@@ -41,8 +49,8 @@ def get_tracked_files():
 
 def main():
     files = get_tracked_files()
-    email_counter = Counter()
-    total_lines = 0
+    email_counter = Counter()  # 每个作者邮箱对应的行数
+    total_lines = 0  # 统计到的总行数
 
     for file in files:
         if should_skip_file(file):
@@ -50,9 +58,10 @@ def main():
         if not is_text_file(file):
             continue
         try:
+            # `git blame -e` 输出每行的作者信息(-e 显示邮箱)
             blame = subprocess.check_output(['git', 'blame', '-e', file], text=True, errors='replace')
             for line in blame.splitlines():
-                # The email always inside <>
+                # 邮箱总是位于尖括号 < > 之间
                 if '<' in line and '>' in line:
                     try:
                         email = line.split('<')[1].split('>')[0].strip()
@@ -61,8 +70,10 @@ def main():
                     email_counter[email] += 1
                     total_lines += 1
         except subprocess.CalledProcessError:
+            # 单个文件 blame 失败时跳过,不影响整体统计
             continue
 
+    # 按行数从多到少输出各作者占比
     for email, lines in email_counter.most_common():
         percent = (lines / total_lines * 100) if total_lines else 0
         print(f'{email}: {lines}/{total_lines} {percent:.2f}%')
