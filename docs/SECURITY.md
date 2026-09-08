@@ -1,209 +1,184 @@
-# Security Policy
+> 🌐 本文档由 [open-webui/open-webui](https://github.com/open-webui/open-webui) 翻译,英文原版见原项目。
+>
+> 📝 本文件超过 10000 字符,仅翻译核心章节("外部 CNA 与厂商处置""报告处理"两节未译,请参阅英文原版)。
 
-Our goal is to protect Open WebUI's users and their data, and to handle security reports with a clear, consistent, and publicly documented process.
-We want to operate a transparent security process, in which accepted vulnerabilities are published openly as advisories so anyone can see what was found, how it was resolved and most importantly, which version contains a patch for it.
-Our stance: a visible advisory history is evidence of active scrutiny and a disclosure process that works, not a measure of how fragile the software is.
+# 安全政策
 
-## Supported Versions
+我们的目标是保护 Open WebUI 的用户及其数据,并以清晰、一致、可公开查阅的流程处理安全报告。
+我们希望运行一套透明的安全流程:被接受的漏洞会以安全公告(advisory)的形式公开发布,任何人都能看到发现了什么、如何修复,以及最重要的是,哪个版本包含补丁。
+我们的立场是:可见的公告历史是主动审查与有效披露流程的证明,而不是衡量软件有多脆弱的标尺。
 
-| Version (Branch) | Supported          |
+## 支持的版本
+
+| 版本(分支)      | 是否支持           |
 | ---------------- | ------------------ |
 | main             | :white_check_mark: |
 | dev              | :x:                |
-| others           | :x:                |
+| 其他             | :x:                |
 
-**If an issue is already fixed, or already being fixed in the open, at the time you file, the report will not be accepted** — it did not contribute to discovering or remediating the issue, and we will not publish an advisory for it.
+**如果你提交报告时,问题已经被修复,或已经在公开渠道修复中,该报告将不会被接受**——它对发现或修复该问题没有任何贡献,我们也不会为其发布公告。
 
-A fix counts as already-existing regardless of which branch it lives on — including `dev` — and regardless of whether it was silently resolved in an earlier version. Branch support status (see table above) governs where a vulnerability must be _reproducible_, not whether a fix already exists: a bug live in a supported branch but already fixed in `dev` is still an already-fixed issue under this rule.
+"修复已存在"的判定与修复位于哪个分支无关(包括 `dev` 分支),也与是否在更早的版本中被静默修复无关。分支支持状态(见上表)只决定漏洞必须在何处_可复现_,而不决定修复是否已存在:某个 Bug 存在于受支持分支、但已在 `dev` 分支被修复,按本规则仍属于"已修复问题"。
 
-Two specific patterns this covers, both of which we reject:
+这条规则明确覆盖两种模式,二者均会被拒绝:
 
-- Filing a report for a bug found in an **older version** that was already resolved by the time of the current supported version.
-- **Monitoring our public commits or pull requests** and filing a report for an issue they already address or fix. We have observed automated monitoring of our public commits and PRs that produced reports against fixes others had already authored; this rule exists to reject that pattern.
+- 为**旧版本**中发现、但在当前受支持版本发布时早已被修复的 Bug 提交报告。
+- **监控我们的公开提交或 Pull Request**,并就其已处理或已修复的问题提交报告。我们已观察到对公开提交和 PR 的自动化监控行为,其产出的报告针对的是他人早已写好的修复;本规则正是为了拒绝这类模式。
 
-We need not decide whether you discovered the issue independently — we cannot, and it makes no difference. On the provable facts your report duplicates work that is already public and already fixed or being fixed; you filed strictly last, and there is no way to distinguish independent discovery from scraping. Credit for the issue belongs to whoever found or fixed it — who in turn forfeits their own claim to it by disclosing publicly instead of reporting it to us confidentially first. A publicly-disclosed fix therefore earns no advisory, and no credit for anyone.
+我们无需判断你是否独立发现了该问题——既无法判断,也没有区别。就可证明的事实而言,你的报告重复了已经公开、且已修复或修复中的工作;你在时间上严格靠后,且无法把独立发现与爬取监控区分开。问题的署名属于首先发现或修复它的人——而后者若选择公开披露而非先向我们保密报告,同样会丧失署名权。因此,公开披露过的修复不会获得公告,也不会给任何人带来署名。
 
 > [!TIP]
-> **Before reporting, check whether your finding still reproduces on the `dev` branch** (and any other active development branch).
-> We develop in the open, and a fix may already be committed there ahead of a release. Confirming this first saves you the effort of writing up a report we'd have to close as already-fixed.
+> **提交报告前,请先确认你的发现在 `dev` 分支**(以及其他活跃开发分支)**上是否仍可复现**。
+> 我们公开开发,修复可能已先于发版提交到那里。先确认这一点,能省去你撰写一份只会被以"已修复"关闭的报告的功夫。
 
-## Good-faith reports that aren't vulnerabilities
+## 善意报告:不属于漏洞的情况
 
-If you've found something that you know is **not strictly a vulnerability under our policy** — but where public disclosure would still be irresponsible (e.g. an urgent dependency bump needed because of a downstream vuln, or similar) — you may **still report it privately** via [GitHub Security Advisories](https://github.com/open-webui/open-webui/security/advisories/new). We will handle it responsibly.
+如果你发现的内容**按本政策严格来说不属于漏洞**——但公开披露仍然不负责任(例如因下游漏洞需要紧急升级依赖,或类似情况)——你**仍然可以通过** [GitHub Security Advisories](https://github.com/open-webui/open-webui/security/advisories/new) **私下报告**。我们会负责任地处理。
 
-In line with the CVE rules, we will **not** publish an advisory or mint a CVE for these — but we **will** act on them (e.g. ship the bump) and keep the report confidential until handled.
-<ins>**Where a fix lands as a result of your report and you'd like credit, we'll try to acknowledge you (e.g. as a co-author on the change).**</ins>
+依照 CVE 规则,我们**不会**为此发布公告或分配 CVE——但我们**会**采取行动(例如发布升级),并在处理完毕前对报告保密。
+<ins>**如果因你的报告而落地了修复,且你希望获得署名,我们会尽量致谢(例如在变更中列为共同作者)。**</ins>
 
-Thank you for your report!
+感谢你的报告!
 
-## What a Valid Report Gets You
+## 有效报告能带来什么
 
-If your report describes a real vulnerability under this policy, here's what you can expect from us:
+如果你的报告描述的是本政策下的真实漏洞,你可以期待:
 
-- **Credit on the advisory.** You're named as the reporter on the published advisory. Where multiple reporters each demonstrated a distinct vector, every one of you is credited (see [Report Handling](#report-handling)).
-- **Coordinated disclosure.** We won't publish out from under you while you're still working the issue with us. Status moves visibly on the advisory itself — including the CVE request — and GitHub notifies you of those updates, so you can follow it through to publication.
-- **A real fix, handled responsibly.** For findings with broad or severe real-world impact, we may hold publication for up to ~2 weeks after the patched release so administrators can update before details are public.
+- **公告署名。** 你将以报告人身份出现在已发布公告上。当多名报告人各自演示了不同攻击路径时,每个人都会被署名(见英文原版"Report Handling")。
+- **协调披露。** 在你与我们一起处理问题的期间,我们不会抢先公开。状态变化(包括 CVE 申请)都会在公告本身上可见,GitHub 会就更新通知你,你可以一路跟进到正式发布。
+- **负责任的真实修复。** 对于现实影响广泛或严重的发现,我们可能在补丁版本发布后最长约 2 周内暂缓公告发布,让管理员有时间先完成更新。
 
-What we _can't_ offer is a bounty or a guaranteed turnaround. What you get is a serious fix, honest credit, and a process that treats your work as the contribution it is.
+我们不能提供的是赏金或固定响应时限。你能得到的是认真的修复、诚实的署名,以及把你的工作当作贡献对待的流程。
 
-## Alignment with the CVE Program
+## 与 CVE 项目的对齐
 
-The **CVE Program rules** (and CNA operational rules) are the **baseline** for all CVE handling here, and this policy operates within them. Under those rules, the determination of whether a report constitutes a security vulnerability in Open WebUI is the vendor's to make; this policy documents the criteria by which we exercise that determination. Where the rules are silent, they still apply; where this policy specifies how we apply them to Open WebUI, it does so as the vendor's published disposition criteria, not as a replacement for or exception to the program rules.
+**CVE 项目规则**(及 CNA 运营规则)是本项目中所有 CVE 处理的**基线**,本政策在其框架内运行。依据这些规则,某份报告是否构成 Open WebUI 的安全漏洞由厂商判断;本政策记录的正是我们行使该判断的标准。规则未言明之处,规则依然适用;本政策对规则在 Open WebUI 上的应用说明,属于厂商公开的处置标准,而非对项目规则的替代或豁免。
 
-## Reporting Channel
+## 报告渠道
 
-We accept vulnerability reports **only** through [GitHub Security Advisories](https://github.com/open-webui/open-webui/security/advisories/new). Reports submitted through **any** other platform — including but not limited to third-party vulnerability reporting platforms, vulnerability brokers, social media, email, Discord, or Reddit — will not be processed.
+我们**只**接受通过 [GitHub Security Advisories](https://github.com/open-webui/open-webui/security/advisories/new) 提交的漏洞报告。通过**任何**其他平台提交的报告——包括但不限于第三方漏洞报告平台、漏洞中介、社交媒体、电子邮件、Discord 或 Reddit——均不予处理。
 
-This is not a procedural preference. Our security process is built around the same transparency as the rest of our work, and GitHub Security Advisories is the single authoritative channel where that process lives. We do not and cannot monitor or engage with external reporting platforms, and reports arriving through them will be closed without review.
+这不是流程偏好问题。我们的安全流程与其余工作一样围绕透明度构建,而 GitHub Security Advisories 是该流程所在的唯一权威渠道。我们不监控、也无法监控外部报告平台并与之互动,经由它们到达的报告将不经评审即被关闭。
 
-A report filed on another platform has no standing here: it confers no priority, establishes no filing date, and creates no obligation for us to triage, publish, or otherwise consider it. Only the GitHub Security Advisory record exists for the purposes of this policy — including determining who filed first.
+在其他平台提交的报告在此没有任何效力:它不带来优先级,不构成提交日期,也不产生任何要求我们分诊、发布或考虑它的义务。就本政策而言——包括判定谁先提交——只有 GitHub Security Advisory 记录算数。
 
-## Foreign CNAs and Vendor Disposition
+## 漏洞报告规则
 
-[Based on multiple precedents of foreign CNAs minting CVEs without communicating the report to us prior to publication and/or minting CVEs that do not withstand any scrutiny](https://docs.openwebui.com/security/vendor-dispositions/), this rule was established.
-When a report is filed via GitHub Security Advisories and the maintainers close it as out-of-scope per this policy, that closure is the **vendor's disposition** of the issue. A CVE Numbering Authority (CNA) that mints a CVE for such an issue without reflecting that vendor disposition in the resulting record is acting against vendor disposition.
+我们感谢社区对挖掘潜在漏洞的热情!
+如果你想报告的内容不符合此处列出的规则与指引,仍然可以提交,我们会予以处理(更多信息见上文"善意报告"一节)。
 
-We respond to such records by:
+但即日起,我们**不再接受**低质量的漏洞报告。请确保**提交内容具备建设性、可操作、可复现、文档完善,并遵守以下指引**:
 
-1. Filing a **REJECT** request with the CVE Program (with **DISPUTED** as fallback);
-2. Cataloging the record publicly, naming the issuing CNA;
-3. Refusing to provide vendor statements, version mappings, fix references, or any other coordination that would lend authority to the record;
-4. Escalating repeated patterns from a single CNA to the CVE Program Root.
+**安全边界:** 在本政策中,"安全边界"指我们承认的五项:机密性、完整性、可用性、真实性、不可否认性。我们对它们做宽泛解释——其他安全框架中的等价概念也涵盖在内。有效漏洞必须针对报告人之外的当事方突破其中至少一条。
 
-**Channel compliance does not entitle a CNA to override vendor disposition.** Reporters who escalate a closed-as-out-of-scope/not-a-vulnerability GHSA report to a third-party CNA after vendor disposition has been issued are likewise considered to have acted against vendor disposition, and **may be barred from future GHSA submissions.**
+1. **报告必须为漏洞:** 安全漏洞是可利用的弱点,系统在此表现出非预期行为,使攻击者能够绕过安全控制、获得未授权访问、执行任意代码或提升权限。配置选项、缺失的功能和预期的协议行为都不是漏洞。漏洞必须至少突破一条上述安全边界。
 
-## Rules for Reporting a Vulnerability
+2. **拒绝模糊报告:** 诸如"我发现了一个漏洞"却无任何细节的提交将被视为垃圾信息,不予接受。
 
-We appreciate the community's interest in identifying potential vulnerabilities!
-If you want to report something that does not fulfill our rules and guidelines laid out here, you can still report it and we will handle it, [see our good faith reporting section for more information](#good-faith-reports-that-arent-vulnerabilities).
+3. **深入理解:** 报告必须体现出对代码库、Open WebUI 使用方式的清晰理解,并提供关于漏洞的具体细节,包括受影响组件与潜在影响。
 
-However, effective immediately, we will **not** accept low-effort vulnerability reports. Ensure that **submissions are constructive, actionable, reproducible, well documented and adhere to the following guidelines**:
-
-**Security boundaries:** Throughout this policy, "the security boundaries" means the five we recognize: Confidentiality, Integrity, Availability, Authenticity, and Non-repudiation. We interpret these broadly — equivalent concepts from other security frameworks fall within them. A valid vulnerability must cross at least one of them against a party other than the reporter.
-
-1. **Report MUST be a vulnerability:** A security vulnerability is an exploitable weakness where the system behaves in an unintended way, allowing attackers to bypass security controls, gain unauthorized access, execute arbitrary code, or escalate privileges. Configuration options, missing features, and expected protocol behavior are not vulnerabilities. A vulnerability must cross at least one of the security boundaries (defined above).
-
-2. **No Vague Reports**: Submissions such as "I found a vulnerability" without any details will be treated as spam and will not be accepted.
-
-3. **In-Depth Understanding**: Reports must reflect a clear understanding of the codebase, how Open WebUI is used and provide specific details about the vulnerability, including the affected components and potential impacts.
-
-4. **Proof of Concept (PoC) is Mandatory**: Each submission must include a well-documented proof of concept (PoC) that demonstrates the vulnerability. If confidentiality is a concern, reporters are encouraged to create a private fork of the repository and share access with the maintainers. Reports lacking valid evidence may be disregarded.
+4. **概念验证(PoC)为强制项:** 每份提交必须附带文档完善的 PoC,用以演示漏洞。如果保密性是顾虑,建议报告人创建仓库的私有 fork 并与维护者共享访问权限。缺乏有效证据的报告可能被忽略。
 
 > [!NOTE]
-> A PoC (Proof of Concept) is a **demonstration of exploitation of a vulnerability**. Your PoC must show:
+> PoC(概念验证)是**对漏洞利用过程的演示**。你的 PoC 必须说明:
 >
-> 1. Exactly which security boundary was crossed
-> 2. How this vulnerability is triggered/abused (inputs, endpoints, UI actions, etc.)
-> 3. What actions the attacker can now perform
-> 4. Exact steps and commands to reproduce (copy/paste runnable where possible), expected result vs. actual result
+> 1. 究竟突破了哪条安全边界
+> 2. 该漏洞如何被触发/滥用(输入、端点、UI 操作等)
+> 3. 攻击者由此可以执行哪些操作
+> 4. 精确的复现步骤与命令(尽量可直接复制运行),预期结果与实际结果对比
 
-5. **Remediation is required**:
+5. **必须提供修复方案**:
 
-Along with the PoC, you must provide **either**:
+   与 PoC 一起,你必须提供**以下之一**:
 
-1. **a remediation plan** (i.e. "actionable steps" that a maintainer can apply), **or**
-2. **a patch/PR**
+   1. **修复计划**(即维护者可执行的"可操作步骤"),**或**
+   2. **补丁/PR**
 
-Your remediation guidance can include, for example:
+   修复指引可以包括:
 
-- The **likely root cause** (what's wrong and where)
-- The **location(s)** to change (file/module/function names if known)
-- The **recommended fix approach** (validation/sanitization rules, auth checks, safe defaults, etc.)
-- Any **security tradeoffs** or potential regressions to watch for
+   - **可能的根因**(问题是什么、在哪里)
+   - 需要修改的**位置**(如已知,给出文件/模块/函数名)
+   - **推荐的修复思路**(校验/净化规则、鉴权检查、安全默认值等)
+   - 需要注意的**安全权衡**或潜在回归
 
-6. **Default Configuration Testing**: Vulnerability reports must be tested and reproducible using Open WebUI's out-of-the-box default configuration. Claims of vulnerabilities that only manifest with explicitly weakened security settings may be discarded, unless they are covered by the following exception:
+6. **默认配置测试:** 漏洞报告必须基于 Open WebUI 开箱即用的默认配置完成测试并可复现。仅在显式弱化安全设置时才成立的漏洞主张可能被丢弃,除非符合以下例外:
 
-> [!NOTE]  
-> **Note**: If you believe you have found a security issue that
->
-> 1. affects default configurations, **or**
-> 2. represents a genuine bypass of intended security controls, **or**
-> 3. works only with non-default configurations, **but the configuration in question is likely to be used by production deployments**, **then we absolutely want to hear about it.** This policy is intended to filter configuration issues and deployment problems, not to discourage legitimate security research.
+   > [!NOTE]
+   > **注意**:如果你认为你发现的安全问题
+   >
+   > 1. 影响默认配置,**或**
+   > 2. 构成对预期安全控制的真实绕过,**或**
+   > 3. 仅在非默认配置下成立,**但该配置很可能被生产部署使用**,**那么我们绝对想听你说说。** 本政策旨在过滤配置类问题和部署问题,而不是打击正当的安全研究。
 
-7. **Threat Model Understanding Required**: Reports must demonstrate understanding of Open WebUI's self-hosted, single-tenant, authenticated, extensible, role-based access control architecture. Comparing Open WebUI to services with fundamentally different security models without acknowledging the architectural differences may result in report rejection.
+7. **必须理解威胁模型:** 报告必须体现出对 Open WebUI 自托管、单租户、需身份验证、可扩展、基于角色的访问控制架构的理解。把 Open WebUI 与安全模型根本不同的服务作比较而不承认架构差异,可能导致报告被拒绝。
 
-8. **CVSS Scoring Accuracy:** You do not have to include a CVSS score in your report. If you leave the CVSS section empty, we will fill it out for you prior to publishing. If you include a CVSS score with your report, it must accurately reflect the vulnerability according to CVSS methodology. In case of inaccurate CVSS, we will adjust the CVSS score of your report. If you cite other CVEs to support your report, ensure they are **genuinely comparable** in vulnerability type, threat model, and attack vector.
+8. **CVSS 评分准确性:** 报告中不必包含 CVSS 评分。如果留空,我们会在发布前补全。如果你提供了 CVSS 评分,它必须按 CVSS 方法论准确反映漏洞。评分不准确时,我们会调整你报告的 CVSS 评分。如果引用其他 CVE 支撑你的报告,确保它们在漏洞类型、威胁模型和攻击路径上**真正可比**。
 
-9. **Admin Actions Are Out of Scope:** Vulnerabilities that require an administrator to actively perform unsafe actions are **not considered valid vulnerabilities**. **Admins have full system control and are expected to understand the security implications of their actions and configurations**. This includes but is not limited to: adding malicious external servers (models, tools, webhooks, functions), pasting untrusted code into Functions/Tools, or intentionally weakening security settings. **Reports requiring admin negligence or social engineering of admins may be rejected.**
+9. **管理员主动操作超出范围:** 需要管理员主动执行不安全操作才成立的漏洞**不被视为有效漏洞**。**管理员拥有完整的系统控制权,理应理解其操作与配置的安全影响**。包括但不限于:添加恶意外部服务器(模型、工具、Webhook、函数)、把不受信任的代码粘贴进 Functions/Tools,或故意弱化安全设置。**依赖管理员疏忽或对管理员进行社会工程的报告可能被拒绝。**
 
-> [!NOTE]
-> Similar to rule "Default Configuration Testing": If you believe you have found a vulnerability that affects admins and is NOT caused by admin negligence or intentionally malicious actions,
-> **then we absolutely want to hear about it.** This policy is intended to filter social engineering attacks on admins, malicious plugins being deployed by admins and similar malicious actions, not to discourage legitimate security research.
+   > [!NOTE]
+   > 与"默认配置测试"规则类似:如果你认为你发现的漏洞影响管理员,且并非由管理员疏忽或故意恶意行为导致,**那么我们绝对想听你说说。** 本政策旨在过滤针对管理员的社会工程攻击、管理员部署恶意插件等恶意行为,而不是打击正当的安全研究。
 
-10. **Tools & Functions Code Execution Is Intended Behavior:** Open WebUI's Tools and Functions feature is **designed** to execute user-provided Python code on the server. This is core, intentional functionality — not a vulnerability (see also 'Threat Model Understanding'). Function creation is **restricted to administrators only**. Tool creation is controlled by the `workspace.tools` permission, which is **disabled by default** for non-admin users and should only be granted to fully trusted users who are equivalent to system administrators in terms of trust. <ins>**Granting a user the ability to create Tools is equivalent to giving them shell access to the server**</ins>. If an administrator grants this permission to untrusted users, this constitutes intentional misconfiguration and is additionally covered by 'Admin Actions Are Out of Scope'. Deployments that do not need `workspace.tools` or Functions plugin execution can set `ENABLE_PLUGINS=false`. More generally, **reports describing ANY attack chain that involves Tools or Functions — including but not limited to code execution, file access, network requests, or environment variable access — will be closed as not a vulnerability / intended behavior.** This applies to both direct code execution and frontmatter-based package installation (`pip install`).
+10. **Tools 与 Functions 代码执行是预期行为:** Open WebUI 的 Tools 和 Functions 功能**就是设计为**在服务器上执行用户提供的 Python 代码。这是核心的、有意为之的功能——不是漏洞(另见"必须理解威胁模型")。Function 创建**仅限管理员**。Tool 创建由 `workspace.tools` 权限控制,该权限对非管理员用户**默认禁用**,只应授予在信任级别上等同于系统管理员、完全可信的用户。<ins>**授予某用户创建 Tool 的能力,等同于授予其服务器 shell 访问权**</ins>。管理员若将该权限授予不受信任的用户,即构成故意错误配置,同时落入"管理员主动操作超出范围"的范畴。不需要 `workspace.tools` 或 Functions 插件执行的部署可以设置 `ENABLE_PLUGINS=false`。更一般地,**任何涉及 Tools 或 Functions 的攻击链报告——包括但不限于代码执行、文件访问、网络请求、环境变量访问——都将以"非漏洞/预期行为"关闭。** 该规则同时适用于直接代码执行与基于 frontmatter 的包安装(`pip install`)。
 
-> [!IMPORTANT]
-> **For administrators:** Treat the `workspace.tools` permission as **root-equivalent access**. Only grant it to users you would trust with direct access to your server. If you enable this permission for untrusted users, you are accepting the risk of arbitrary code execution on your host. For more details, see our [Plugin Security documentation](https://docs.openwebui.com/features/extensibility/plugin/).
+    > [!IMPORTANT]
+    > **致管理员:** 请把 `workspace.tools` 权限当作**等同于 root 的访问权**。只授予你信任其直接接触你服务器的用户。为不受信任的用户启用该权限,即表示你接受主机上任意代码执行的风险。详见[插件安全文档](https://docs.openwebui.com/features/extensibility/plugin/)。
 
-11. **Legacy Code Paths Are Out of Scope:** Open WebUI maintains some code paths that are explicitly marked as legacy in the official documentation, which is authoritative as to what is legacy. Legacy paths remain available — sometimes still the default — purely for backwards-compatibility reasons, not because they are the supported or maintained surface. The supported replacement is the migration target, and security and functional work happens on the replacement, not the legacy path. Reports describing a security boundary issue on a legacy code path that does not also reproduce on the supported replacement are usually out of scope under this rule.
+11. **遗留代码路径超出范围:** Open WebUI 保留了一些在官方文档(关于何为遗留路径的权威来源)中明确标注为 legacy 的代码路径。这些遗留路径仅因向后兼容而保留——有时仍是默认值——并非受支持或持续维护的界面。受支持的替代方案是迁移目标,安全与功能工作都发生在替代方案上,而非遗留路径上。描述某遗留代码路径上的安全边界问题、且该问题在受支持替代方案上不能复现的报告,通常按本规则属于超出范围。
 
-> [!NOTE]
-> If you find a security issue that:
->
-> 1. exists on a legacy code path **and also on the supported modern replacement**, OR
-> 2. exists on a legacy code path **and the legacy path is the only documented way to achieve a given function** (no migration target exists yet)
->
-> we still want to hear about it. This rule is intended to filter reports that target deprecated paths with a documented modern alternative, not to discourage finding real bugs in paths users are still on.
+    > [!NOTE]
+    > 如果你发现的安全问题:
+    >
+    > 1. 同时存在于遗留代码路径**和**受支持的现代替代方案上,**或**
+    > 2. 存在于遗留代码路径,**且该遗留路径是实现某功能的唯一文档化方式**(尚无迁移目标)
+    >
+    > 我们仍然想听你说说。本规则旨在过滤那些存在文档化现代替代方案的已弃用路径类报告,而不是打击用户仍在使用的路径上的真实 Bug。
 
-12. **AI report transparency:** Due to a spike in vulnerability reports **you must disclose if AI was used in any capacity** - whether for writing the report, generating the PoC, or identifying the vulnerability. If AI helped you in any way shape or form in the creation of the report, PoC or finding the vulnerability, you must disclose it. Note that AI-aided vulnerability reports **will not be rejected by us by default** but reports not declaring AI use, yet appear AI-aided will undergo severely more scrutiny.
+12. **AI 报告透明度:** 由于漏洞报告数量激增,**你必须披露 AI 是否以任何形式参与**——无论是撰写报告、生成 PoC 还是发现漏洞。只要 AI 以任何方式协助了报告、PoC 或漏洞发现,就必须声明。请注意,AI 辅助的报告**默认不会被我们拒绝**,但未声明使用 AI、却明显带有 AI 辅助痕迹的报告将受到严格得多的审查。
 
-13. **Self-Affecting Issues Are Not Vulnerabilities:** A vulnerability requires crossing a security boundary that affects **a party other than the reporter**. Crossing one of the security boundaries only against the reporter's own data, account, session, or environment is **not a vulnerability** - it is a bug, and belongs in the [Issue Tracker](https://github.com/open-webui/open-webui/issues), not in a security report.
+13. **仅影响自身的问题不是漏洞:** 漏洞要求突破的安全边界影响到**报告人之外的当事方**。仅针对报告人自己的数据、账户、会话或环境突破安全边界,**不是漏洞**——那是 Bug,应提交到 [Issue 跟踪器](https://github.com/open-webui/open-webui/issues),而非安全报告。
 
-> [!NOTE]
-> This rule is about **who is harmed**, not about severity. A user modifying or deleting their own data, impairing their own session, observing their own configuration, or disabling security controls on their own account is out of scope under this rule, regardless of impact.
->
-> If the same action also affects another user, the operator, the host system, or shared resources, identify that second party clearly in the PoC, and we want to hear about it.
+    > [!NOTE]
+    > 本规则关注的是**谁受到伤害**,而非严重程度。用户修改或删除自己的数据、干扰自己的会话、查看自己的配置,或在自己账户上禁用安全控制,均按本规则属于超出范围,无论影响大小。
+    >
+    > 如果同一操作还会影响其他用户、运营者、宿主系统或共享资源,请在 PoC 中清楚指出该第二当事方,我们想听你说说。
 
-**Non-compliant submissions may be closed, and repeat or extreme violators may be banned from submitting reports.** Our goal is to foster a constructive reporting environment where quality submissions promote better security for all users.
-If you want to report something that does not fulfill our rules and guidelines laid out here, you can still report it and we will handle it, [see our good faith reporting section for more information](#good-faith-reports-that-arent-vulnerabilities).
+**不符合要求的提交可能被关闭,屡次或严重违规者可能被禁止提交报告。** 我们的目标是营造建设性的报告环境,让高质量的提交为所有用户带来更好的安全。
+如果你想报告的内容不符合此处列出的规则与指引,仍然可以提交,我们会予以处理(更多信息见上文"善意报告"一节)。
 
-## Expected Timeframe
+## 预期时间线
 
-We aim to triage new reports, ship fixes, and publish advisories promptly. However, due to the very high volume of incoming vulnerability reports, issues, discussions, pull requests, and general project maintenance — lately compounded by a high number of (AI-generated) reports — not every report can be handled immediately. Open WebUI is led and maintained by a small core team, and security reports are handled alongside all other project responsibilities.
+我们的目标是及时分诊新报告、发布修复并发布公告。但由于涌入的漏洞报告、Issue、Discussion、Pull Request 以及日常项目维护量极大——近期又叠加了大量(AI 生成的)报告——并非每份报告都能立即处理。Open WebUI 由一个小型核心团队领导和维护,安全报告与其他所有项目职责并行处理。
 
-**Please expect several weeks** for your report to be triaged, investigated, fixed, and published. While we aim to respond to every report as quickly as possible, it is normal to experience periods of silence lasting up to several weeks. **This does not mean your report has been ignored** — it means it has not yet been picked up. Feel free to post a follow-up comment on your advisory for visibility if you feel your report may have been lost; we'll get to you as we work through the reports. The entire process can realistically take multiple weeks from initial submission to final publication. We appreciate your patience and understanding.
+**请预期数周时间**来完成报告的分诊、调查、修复和发布。虽然我们力求尽快回复每一份报告,但出现长达数周的静默期是正常的。**这不代表你的报告被忽视**——只是尚未轮到处理。如果你担心报告被遗漏,可以在你的公告下追加评论提醒我们;我们会在处理队列时联系你。从最初提交到最终发布,整个流程实际可能需要数周。感谢你的耐心与理解。
 
-**We do not accept reporter-imposed publishing deadlines.** We coordinate disclosure on our own schedule, and we will triage, fix, and publish as fast as we reasonably can. Externally-imposed hard timelines do not speed this up — they do the opposite: they pull our time away from actually fixing issues and toward managing a clock, **at the expense of every other report (even ones that might be more serious)** in the queue and the project as a whole. A deadline attached to your report will not change when or how fast it is handled.
+**我们不接受报告人自行设定的发布期限。** 我们按自己的节奏协调披露,并会尽合理速度完成分诊、修复和发布。外部强加的硬性时限不会加快流程——反而适得其反:它会把我们的时间从真正修复问题挪去应付倒计时,**牺牲队列中的其他所有报告(甚至是可能更严重的那些)和整个项目**。在你的报告上附加期限,不会改变它被处理的时间和速度。
 
-For findings we judge to have **broad or severe real-world impact** — regardless of CVSS score — we may hold off on publishing for a couple of days, max ~2 weeks after the patched version is released, to give administrators time to update their instances.
+对于我们认为**现实影响广泛或严重**的发现——无论 CVSS 评分如何——我们可能在补丁版本发布后推迟数日、最长约 2 周再发布公告,给管理员留出更新实例的时间。
 
-## Report Handling
+## 负责任披露
 
-When multiple independent reporters describe the same vulnerability class **but** each demonstrates a **distinct and separate exploitation vector** — for example, the same missing authorization check reached through different endpoints — we will consolidate them into the earliest filing **and credit every reporter who demonstrated a distinct path on the consolidated advisory**. Only one CVE will be issued for the consolidated advisory.
+通过 GitHub Security Advisories 提交的漏洞报告是**私密且保密的**。一般规则:在漏洞公告**正式发布**之前,公开披露**任何**细节都是**严格禁止的**——不是指 CVE ID 分配之时,而是指公告本身公开可见之时。
 
-The other case: If you report a valid vulnerability that somebody else reported before you (identical vulnerability, identical exploitation vector), we will close your report as a duplicate. The earliest filing is the one we will handle going forward, and we will not publish multiple advisories for the same vulnerability.
+该禁令适用于**所有渠道**,包括但不限于 Pull Request、Issue、Discussion 的评论(GitHub 或其他平台)、社交媒体(Discord、Reddit 或任何其他平台)、博客、论坛,或任何其他网站与服务。
 
-### Why duplicate reports don't receive credit
+这套保密的负责任披露流程,是为了给我们留出修复 Bug、发布修复并在修复就绪后提醒用户的时间。负责任披露的全部前提是**保护用户免受漏洞伤害**。因此,提前披露会损害所有 Open WebUI 用户的安全,**破坏**负责任披露流程中固有的**信任**。**在官方发布前公开披露漏洞细节的报告人<ins>将被永久禁止后续报告。</ins>**
 
-We credit only the earliest filer of a given vulnerability:
+## 非漏洞相关的疑问或安全关切:
 
-1. **The first report did the work.** By the time a later report arrives, triage and fix are already in motion. Later reports don't change the outcome or timeline; crediting them would misrepresent what moved the fix.
-2. **Credit-for-duplicates incentivizes flooding.** If similar-but-later filings earn credit, the rational play is to skim open advisories and file variations. We already see this pressure — the first-filer rule is what limits it.
-3. **Co-discovery is different from duplication.** Multiple reporters **are credited** on one advisory **when each contributes a _distinct_ finding** — different vector, different affected component, different sub-path the earlier filing does not cover. That is the consolidation rule above. Filing a duplicate of an existing report is not co-discovery.
+可以使用以下渠道:
 
-## Responsible Disclosure
+- **文档问题/改进建议:** 在我们的[文档仓库](https://github.com/open-webui/docs)提 Issue
+- **功能请求:** 在 [GitHub Discussions - Ideas](https://github.com/open-webui/open-webui/discussions/) 发起讨论,与社区确认该需求是否被多人需要
+- **配置帮助:** 到我们的 [Discord 服务器](https://discord.gg/5rJgQTnV4s)或 [Reddit](https://www.reddit.com/r/OpenWebUI/) 向社区求助
+- **一般问题:** 使用我们的 [Issue 跟踪器](https://github.com/open-webui/open-webui/issues)
+- **Bug:** 到 [Issue 跟踪器](https://github.com/open-webui/open-webui/issues)报告
+- **最佳实践指引:** 帮助扩充[文档](https://github.com/open-webui/docs)。
 
-Vulnerability reports submitted through GitHub Security Advisories are **private and confidential**. Generally: Public disclosure of **ANY** details is **STRICTLY PROHIBITED** until an advisory for the vulnerability has been **fully published** — not merely when a CVE ID has been assigned, but when an advisory itself is publicly visible.
+我们会定期结合自动化与手动测试技术,审计内部流程和系统架构中的漏洞。我们也计划尽快在项目中引入 SAST 和 SCA 扫描。
 
-This prohibition applies to **all channels**, including but not limited to comments on pull requests, issues, or discussions (on GitHub or elsewhere), social media (Discord, Reddit or any other platform), blogs, forums, or any other website or service.
-
-This confidential, responsible disclosure process exists to give us time to fix bugs, publish fixes and alert users once a fix is ready. The entire premise of responsible disclosure is to **protect users from vulnerabilities**. Therefore, premature disclosure undermines the security of all Open WebUI users and **violates the trust** inherent in the responsible disclosure process. **Reporters who prematurely publicly disclose vulnerability details before official publication <ins>WILL BE PERMANENTLY BANNED from future reporting.</ins>**
-
-## For Non-Vulnerability Related Questions or Security Concerns:
-
-You can use the following channels:
-
-- **Documentation issues/improvement ideas:** Open an issue on our [Documentation Repository](https://github.com/open-webui/docs)
-- **Feature requests:** Create a discussion in [GitHub Discussions - Ideas](https://github.com/open-webui/open-webui/discussions/) to discuss with the community if this feature request is wanted by multiple people
-- **Configuration help:** Ask the community for help and guidance on our [Discord Server](https://discord.gg/5rJgQTnV4s) or on [Reddit](https://www.reddit.com/r/OpenWebUI/)
-- **General issues:** Use our [Issue Tracker](https://github.com/open-webui/open-webui/issues)
-- **Bugs:** Report bugs to our [Issue Tracker](https://github.com/open-webui/open-webui/issues)
-- **Best-practice guidance:** Help expand the [Documentation](https://github.com/open-webui/docs).
-
-We regularly audit our internal processes and system architecture for vulnerabilities using a combination of automated and manual testing techniques. We are also planning to implement SAST and SCA scans in our project soon.
-
-For any other immediate concerns and questions, please create an issue in our [issue tracker](https://github.com/open-webui/open-webui/issues) or contact our team on [Discord](https://discord.gg/5rJgQTnV4s).
+其他紧急关切和疑问,请在我们的 [Issue 跟踪器](https://github.com/open-webui/open-webui/issues)提 Issue,或通过 [Discord](https://discord.gg/5rJgQTnV4s) 联系我们的团队。
 
 ---
 
-_Last updated on **2026-07-24**._
+_最后更新于 **2026-07-24**。_

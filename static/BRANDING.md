@@ -1,9 +1,11 @@
-# Open WebUI Branding Assets
+> 🌐 本文档由 [open-webui/open-webui](https://github.com/open-webui/open-webui) 翻译,英文原版见原项目。
 
-`favicon.png`, `opensearch.xml`, and nearby references contain Open WebUI name, logo, visual, textual, or symbolic identifiers.
+# Open WebUI 品牌资产
 
-Open WebUI branding in this directory includes assets, filenames, metadata, manifests, references, and surrounding UI that present or preserve the Open WebUI name, logo, visual, textual, or symbolic identifiers.
+`favicon.png`、`opensearch.xml` 及邻近引用包含 Open WebUI 的名称、徽标、视觉、文字或符号标识。
 
-Do not alter, remove, obscure, or replace Open WebUI branding except as permitted by `LICENSE`.
+本目录中的 Open WebUI 品牌内容包括:展示或保留 Open WebUI 名称、徽标、视觉、文字或符号标识的资产、文件名、元数据、清单、引用及周边 UI。
 
-See also: https://docs.openwebui.com/license.
+除非 `LICENSE` 允许,请勿更改、移除、遮蔽或替换 Open WebUI 品牌内容。
+
+另见:https://docs.openwebui.com/license。
