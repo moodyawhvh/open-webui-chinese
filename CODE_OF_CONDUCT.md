@@ -1,100 +1,102 @@
-# Contributor Covenant Code of Conduct
+> 🌐 本文档由 [open-webui/open-webui](https://github.com/open-webui/open-webui) 翻译,英文原版见原项目。
 
-## Our Pledge
+# 贡献者公约行为准则
 
-As members, contributors, and leaders of this community, we pledge to make participation in our project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+## 我们的承诺
 
-We are committed to creating and maintaining an open, respectful, and professional environment where positive contributions and meaningful discussions can flourish. By participating in this project, you agree to uphold these values and align your behavior to the standards outlined in this Code of Conduct.
+作为本社区的成员、贡献者和领导者,我们承诺让每一位参与者都能在不受骚扰的环境中参与本项目,无论其年龄、体型、显性或隐性残障、族裔、性征、性别认同与表达、经验水平、教育程度、社会经济地位、国籍、个人外貌、种族、宗教,或性取向与性别认同如何。
 
-## Why These Standards Are Important
+我们致力于打造并维护一个开放、相互尊重且专业的环境,让积极的贡献和有意义的讨论能够蓬勃发展。参与本项目即表示你同意维护这些价值观,并使自己的行为符合本行为准则所列标准。
 
-Projects rely on a community of volunteers dedicating their time, expertise, and effort toward a shared goal. These projects are inherently collaborative but also fragile, as the success of the project depends on the goodwill, energy, and productivity of those involved.
+## 这些标准为什么重要
 
-Maintaining a positive and respectful environment is essential to safeguarding the integrity of this project and protecting contributors' efforts. Behavior that disrupts this atmosphere—whether through hostility, entitlement, or unprofessional conduct—can severely harm the morale and productivity of the community. **Strict enforcement of these standards ensures a safe and supportive space for meaningful collaboration.**
+开源项目依靠一群志愿者投入时间、专业知识和精力来达成共同目标。这类项目本质上高度协作,同时也十分脆弱,因为项目的成败取决于参与者的善意、热情与生产力。
 
-This is a community where **respect and professionalism are mandatory.** Violations of these standards will result in **zero tolerance** and immediate enforcement to prevent disruption and ensure the well-being of all participants.
+维护积极、相互尊重的环境,对于守护本项目的完整性和保护贡献者的付出至关重要。破坏这种氛围的行为——无论是敌意、理所当然的索取态度,还是不专业的举止——都会严重打击社区的士气与生产力。**严格执行这些标准,是为了确保一个安全、彼此支持的空间,让有意义的协作得以进行。**
 
-## Our Standards
+这是一个**尊重与专业性为强制要求**的社区。违反这些标准的行为将采取**零容忍**态度并立即处置,以防止干扰,保障所有参与者的良好体验。
 
-Examples of behavior that contribute to a positive and professional community include:
+## 我们的标准
 
-- **Respecting others.** Be considerate, listen actively, and engage with empathy toward others' viewpoints and experiences.
-- **Constructive feedback.** Provide actionable, thoughtful, and respectful feedback that helps improve the project and encourages collaboration. Avoid unproductive negativity or hypercriticism.
-- **Recognizing volunteer contributions.** Appreciate that **contributors dedicate their free time and resources selflessly**. Approach them with gratitude and patience.
-- **Focusing on shared goals.** Collaborate in ways that prioritize the health, success, and sustainability of the community over individual agendas.
+有助于营造积极、专业社区的行为示例包括:
 
-Examples of unacceptable behavior include:
+- **尊重他人。** 体谅他人,积极倾听,以同理心对待他人的观点与经历。
+- **建设性反馈。** 提供可操作、有思考深度且尊重他人的反馈,帮助项目改进并促进协作。避免无意义的消极言论或吹毛求疵。
+- **认可志愿者的贡献。** 感激**贡献者无私投入自己的空闲时间和资源**。以感激和耐心对待他们。
+- **聚焦共同目标。** 以社区的健康、成功和可持续为先于个人诉求的方式进行协作。
 
-- The use of discriminatory, demeaning, or sexualized language or behavior.
-- Personal attacks, derogatory comments, trolling, or inflammatory political or ideological arguments.
-- Harassment, intimidation, or any behavior intended to create a hostile, uncomfortable, or unsafe environment.
-- Publishing others' private information (e.g., physical or email addresses) without explicit permission.
-- **Entitlement, demand, or aggression toward contributors.** Volunteers are under no obligation to provide immediate or personalized support. Rude or dismissive behavior will not be tolerated.
-- **Unproductive or destructive behavior.** This includes venting frustration as hostility ("tantrums"), hypercriticism, attention-seeking negativity, or anything that distracts from the project's goals.
-- **Spamming and promotional exploitation.** Sharing irrelevant product promotions or self-promotion in the community is not allowed unless it directly contributes value to the discussion.
-- Posting low-effort, hard to read, essay-length AI generated comments or other forms of low-quality, hard to parse content that puts the burden of understanding on the reader.
+不可接受的行为示例包括:
 
-### Feedback and Community Engagement
+- 使用歧视性、贬损性或带性暗示的言辞或行为。
+- 人身攻击、侮辱性评论、引战,或煽动性的政治/意识形态争论。
+- 骚扰、恐吓,或任何制造敌意、不适或不安全环境的行为。
+- 未经明确许可公开他人的隐私信息(如住址或电子邮箱)。
+- **对贡献者摆出理所当然的姿态、提出强求或进行攻击。** 志愿者没有义务提供即时或量身定制的支持。粗鲁或轻蔑的行为绝不容忍。
+- **无建设性或破坏性行为。** 包括以敌意方式发泄不满("耍脾气")、吹毛求疵、博眼球的消极言论,以及其他任何偏离项目目标的行为。
+- **刷屏与推广滥用。** 不允许在社区分享无关的产品推广或自我宣传,除非其确实为讨论带来价值。
+- 发布低质量、难以阅读、篇幅冗长的 AI 生成评论,或其他把理解负担转嫁给读者的低质、难以解析的内容。
 
-- **Constructive feedback is encouraged, but hostile or entitled behavior will result in immediate action.** If you disagree with elements of the project, we encourage you to offer meaningful improvements or fork the project if necessary. Healthy discussions and technical disagreements are welcome only when handled with professionalism.
-- **Respect contributors' time and efforts.** No one is entitled to personalized or on-demand assistance. This is a community built on collaboration and shared effort; demanding or demeaning behavior undermines that trust and will not be allowed.
+### 反馈与社区参与
 
-### Zero Tolerance: No Warnings, Immediate Action
+- **我们鼓励建设性反馈,但敌对或强求的态度将立即被处置。** 如果你不认同项目的某些方面,我们鼓励你提出有意义的改进建议,必要时也可以 fork 本项目。健康的讨论和技术分歧只有在以专业方式进行的的前提下才受欢迎。
+- **尊重贡献者的时间与付出。** 任何人无权要求量身定制或随叫随到的协助。这是一个建立在协作与共同付出之上的社区;强求或贬低性的行为会破坏这份信任,绝不被允许。
 
-This community operates under a **zero-tolerance policy.** Any behavior deemed unacceptable under this Code of Conduct will result in **immediate enforcement, without prior warning.**
+### 零容忍:不设警告,立即处置
 
-We employ this approach to ensure that unproductive or disruptive behavior does not escalate further or cause unnecessary harm to other contributors. The standards are clear, and violations of any kind—whether mild or severe—will be addressed decisively to protect the community.
+本社区实行**零容忍政策。** 任何被认定为违反本行为准则的行为,都将**无需事先警告、立即处置**。
 
-## Enforcement Responsibilities
+我们采取这一方式,是为了确保无建设性或破坏性行为不会进一步升级,也不会对其他贡献者造成不必要的伤害。标准是明确的,任何形式的违规——无论轻微还是严重——都将被果断处理,以保护社区。
 
-Community leaders are responsible for upholding and enforcing these standards. They are empowered to take **immediate and appropriate action** to address any behaviors they deem unacceptable under this Code of Conduct. These actions are taken with the goal of protecting the community and preserving its safe, positive, and productive environment.
+## 执行责任
 
-## Scope
+社区领导者负责维护和执行这些标准。他们有权**立即采取适当行动**,处理任何被其认定为违反本行为准则的行为。采取这些行动的目的在于保护社区,维护其安全、积极、高效的环境。
 
-This Code of Conduct applies to all community spaces, including forums, repositories, social media accounts, and in-person events. It also applies when an individual represents the community in public settings, such as conferences or official communications.
+## 适用范围
 
-Additionally, any behavior outside of these defined spaces that negatively impacts the community or its members may fall within the scope of this Code of Conduct.
+本行为准则适用于所有社区空间,包括论坛、代码仓库、社交媒体账号以及线下活动。当个人在公开场合代表社区时,例如会议或官方沟通中,同样适用。
 
-## Reporting Violations
+此外,在上述定义空间之外发生、但对社区或其成员产生负面影响的行为,也可能属于本行为准则的适用范围。
 
-Instances of unacceptable behavior can be reported to the leadership team at **hello@openwebui.com**. Reports will be handled promptly, confidentially, and with consideration for the safety and well-being of the reporter.
+## 举报违规行为
 
-All community leaders are required to uphold confidentiality and impartiality when addressing reports of violations.
+如遇不可接受的行为,可向领导团队举报:**hello@openwebui.com**。所有举报都会得到及时、保密的处理,并充分考虑举报者的安全与权益。
 
-## Enforcement Guidelines
+所有社区领导者在处理违规举报时,都必须遵守保密与公正原则。
 
-### Ban
+## 执行准则
 
-**Community Impact**: Community leaders will issue a ban to any participant whose behavior is deemed unacceptable according to this Code of Conduct. Bans are enforced immediately and without prior notice.
+### 封禁
 
-A ban may be temporary or permanent, depending on the severity of the violation. This includes—but is not limited to—behavior such as:
+**社区影响**:社区领导者将对任何依据本行为准则被认定为行为不可接受的参与者实施封禁。封禁立即生效,不做事先通知。
 
-- Harassment or abusive behavior toward contributors.
-- Persistent negativity or hostility that disrupts the collaborative environment.
-- Disrespectful, demanding, or aggressive interactions with others.
-- Attempts to cause harm or sabotage the community.
+封禁可以是临时的或永久性的,视违规严重程度而定。包括但不限于以下行为:
 
-**Consequence**: A banned individual is immediately removed from access to all community spaces, communication channels, and events. Community leaders reserve the right to enforce either a time-limited suspension or a permanent ban based on the specific circumstances of the violation.
+- 骚扰或辱骂贡献者。
+- 持续的消极或敌对行为,破坏协作环境。
+- 与他人互动时表现出不敬、强求或攻击性。
+- 试图伤害或破坏社区。
 
-This approach ensures that disruptive behaviors are addressed swiftly and decisively in order to maintain the integrity and productivity of the community.
+**后果**:被封禁者将立即失去访问所有社区空间、沟通渠道和活动的权限。社区领导者保留根据违规的具体情况,实施限期停权或永久封禁的权利。
 
-## Why Zero Tolerance Is Necessary
+这一方式确保破坏性行为得到迅速、果断的处理,以维护社区的完整性与生产力。
 
-Projects thrive on collaboration, goodwill, and mutual respect. Toxic behaviors—such as entitlement, hostility, or persistent negativity—threaten not just individual contributors but the health of the project as a whole. Allowing such behaviors to persist robs contributors of their time, energy, and enthusiasm for the work they do.
+## 为什么必须零容忍
 
-By enforcing a zero-tolerance policy, we ensure that the community remains a safe, welcoming space for all participants. These measures are not about harshness—they are about protecting contributors and fostering a productive environment where innovation can thrive.
+项目依靠协作、善意和相互尊重而繁荣。有毒的行为——比如理所当然的索取、敌意或持续的消极言论——威胁的不仅是个人贡献者,而是整个项目的健康。放任这些行为持续存在,会耗尽贡献者的时间、精力和对工作的热情。
 
-Our expectations are clear, and our enforcement reflects our commitment to this project's long-term success.
+通过执行零容忍政策,我们确保社区始终是所有参与者的安全、友好的空间。这些措施并非出于苛刻,而是为了保护贡献者,营造一个让创新得以蓬勃发展的高效环境。
 
-## Attribution
+我们的期望是明确的,我们的执法体现了对项目长期成功的承诺。
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.0, available at  
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+## 出处声明
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity).
+本行为准则改编自 [Contributor Covenant][homepage] 2.0 版,原文见  
+https://www.contributor-covenant.org/version/2/0/code_of_conduct.html。
+
+社区影响准则参考了 [Mozilla 的行为准则执行阶梯](https://github.com/mozilla/diversity)。
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see the FAQ at  
-https://www.contributor-covenant.org/faq. Translations are available at  
-https://www.contributor-covenant.org/translations.
+有关本行为准则的常见问题,请参见 FAQ:  
+https://www.contributor-covenant.org/faq。多语言译本见  
+https://www.contributor-covenant.org/translations。
